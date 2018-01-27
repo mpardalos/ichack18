@@ -1,5 +1,5 @@
-from . import api
+from . import app
 
-@api.route('/')
+@app.route('/')
 def root():
     return "Heeeeeeey"
