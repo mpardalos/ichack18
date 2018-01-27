@@ -8,6 +8,8 @@ name = "pypi"
 [packages]
 
 flask = "*"
+scikit-learn = "*"
+numpy = "*"
 
 
 [dev-packages]
