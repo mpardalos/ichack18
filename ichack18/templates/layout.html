@@ -1,29 +1,9 @@
 <!doctype html>
 <title>An amazing recomendation site</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <div class="page">
     <h1>An amazing recomendation app</h1>
-      <section>
-      <form>
-        Age:<br>
-        <input type="number" name="age" min="0"><br>
-        Gender:<br>
-        <input type="radio" name="gender" value="male"> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
-        <input type="radio" name="gender" value="other"> Other<br>
-        Group type:<br>
-        <input type="radio" name="group" value="boys"> Boys<br>
-        <input type="radio" name="group" value="girls"> Girls<br>
-        <input type="radio" name="group" value="mixedgroup"> Mixed Group<br>
-        <input type="radio" name="group" value="family"> Family<br>
-        <input type="radio" name="group" value="partner"> Partner<br>
-        Nationality:<br>
-        <input type="text" name="nationality"><br>
-        Country of residence:<br>
-        <input type="text" name="country"><br>
-        <input type="submit" value="Submit">
-      </form>
-      </section>
 
     {% block body %}
 

@@ -11,4 +11,3 @@ if 'dev' in sys.argv:
     )
 
 from . import endpoints
-
