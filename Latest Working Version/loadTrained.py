@@ -6,7 +6,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
 
-test_data = np.array([['18', 'Male']])
+test_data = np.array([['40', 'Other']])
 
 print(test_data)
 

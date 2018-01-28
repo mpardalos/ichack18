@@ -37,11 +37,11 @@ with open('extrapolateTestData.csv', 'r') as csvfile:
 
     model = Sequential()
     model.add(Dense(2, input_dim=2, activation='relu'))
-    model.add(Dense(75, activation='relu'))
+    model.add(Dense(100, activation='relu'))
     model.add(Dense(25, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=batchSize, epochs=50000, verbose=0)
+    model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=batchSize, epochs=50000, verbose=1)
 
     output = model.predict(training_set_raw_inputs, batch_size=batchSize)
 
