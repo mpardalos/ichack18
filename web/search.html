@@ -319,13 +319,20 @@ initPublishedFlyoutMenus(
             let age = $("#age-input").val()
             let gender = $("input[name=gender]:checked").val()
 
-            if (age != "" && age && gender) {
-                fetch('http://882520f3.ngrok.io/recomend?age=' + age + '&gender=' + gender)
-                    .then(r => r.json())
-                    .then(j => alert("Why not watch: " + j.recomendation));
-            } else {
+            if (age == "" || !age || !gender) {
                 alert("* indicates a required field");
+                return;
             }
+
+            if (age <= 0 || age >= 120) {
+                alert("Please enter a valid age");
+                return;
+            }
+
+            fetch('http://882520f3.ngrok.io/recomend?age=' + age + '&gender=' + gender)
+                .then(r => r.json())
+                .then(j => alert("Why not watch: " + j.recomendation));
+            
         });
         </script>
 
