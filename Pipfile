@@ -11,10 +11,14 @@ flask = "*"
 scikit-learn = "*"
 numpy = "*"
 scipy = "*"
+keras = "*"
+"h5py" = "*"
 
 
 [dev-packages]
 
+keras = "*"
+tensorflow = "*"
 
 
 [requires]
