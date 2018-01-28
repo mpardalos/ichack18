@@ -42,8 +42,6 @@ with open('extrapolateTestData.csv', 'r') as csvfile:
     model.load_weights("model.h5")
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=10, epochs=200000, verbose=0)
-
     output = model.predict(training_set_raw_inputs, batch_size=10)
 
     outputIndex = [np.argmax(x) for x in output]
