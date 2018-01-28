@@ -11,7 +11,7 @@ genderDict = {'Male': 0, 'Female': 1, 'Other': 0.5}
 movies = ['Inception', 'The Matrix', 'Star Wars', 'Twilight', 'The Godfather', 'Harry Potter', 'Lord of The Rings',
           'Die Hard', 'The Fault in our Stars', 'Deadpool', 'IT', 'Alien', 'Saw', "The Shawshank Redemption",
           "The Hunger Games", "12 Angry Men", "Inside Out", "The Incredibles", "The Dark Knight", "Despicable Me",
-          "Inside Out", "Hot Fuzz", "Rush Hour", "Shaun of the dead", "Pitch Perfect"]
+          "Inside Out", "Hot Fuzz", "Rush Hour", "Shaun of the Dead", "Pitch Perfect"]
 
 with open('extrapolateTestData.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
@@ -35,11 +35,10 @@ with open('extrapolateTestData.csv', 'r') as csvfile:
     model = Sequential()
     model.add(Dense(2, input_dim=2, activation='relu'))
     model.add(Dense(100, activation='relu'))
-    model.add(Dense(100, activation='relu'))
     model.add(Dense(25, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=len(raw_data), epochs=10000, verbose=1)
+    model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=len(raw_data), epochs=40000, verbose=1)
 
     output = model.predict(training_set_raw_inputs, batch_size=len(raw_data))
 
