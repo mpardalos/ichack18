@@ -1,14 +1,12 @@
-import csv
-import random
+from keras.models import model_from_json
 import numpy as np
 
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.models import model_from_json
-
+<<<<<<< HEAD
 test_data = np.array([['40', 'Other']])
 
 print(test_data)
+=======
+>>>>>>> Move server code into single file
 
 ageLower = 0
 ageUpper = 60
@@ -25,8 +23,10 @@ model = model_from_json(loaded_model_json)
 model.load_weights("model.h5")
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
+test_data = np.array([ ['18', 'Male'] ])
 raw_input = [[int(x[0]) / (ageUpper - ageLower), genderDict[x[1]]] for x in test_data]
 training_set_raw_inputs = np.array(raw_input).astype(float)
+print(training_set_raw_inputs)
 
 
 output = model.predict(training_set_raw_inputs, batch_size=1)

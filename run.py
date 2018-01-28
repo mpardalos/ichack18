@@ -1,4 +1,2 @@
-import ichack18
-
-
-ichack18.app.run(debug=True)
+import findex
+findex.app.run(debug=True)
