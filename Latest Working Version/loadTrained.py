@@ -35,10 +35,11 @@ with open('extrapolateTestData.csv', 'r') as csvfile:
     training_set_raw_inputs = np.array(raw_input).astype(float)
     training_set_raw_outputs = np.array(raw_output).astype(float)
 
-    model = Sequential()
-    model.add(Dense(2, input_dim=2, activation='relu'))
-    model.add(Dense(50, activation='relu'))
-    model.add(Dense(25, activation='softmax'))
+    json_file = open('model.json', 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    model = model_from_json(loaded_model_json)
+    model.load_weights("model.h5")
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     model.fit(training_set_raw_inputs, training_set_raw_outputs, batch_size=10, epochs=200000, verbose=0)
@@ -51,11 +52,3 @@ with open('extrapolateTestData.csv', 'r') as csvfile:
     print(rawOutputIndex)
 
     print(sum([(x - y) ** 2 for x, y in zip(outputIndex, rawOutputIndex)]))
-
-    model_json = model.to_json()
-    with open("model.json", "w") as json_file:
-        json_file.write(model_json)
-
-
-    model.save_weights("model.h5")
-    print("Saved model to disk")
