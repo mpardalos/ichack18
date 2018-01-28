@@ -1,2 +1,2 @@
 import findex
-findex.app.run(debug=True)
+findex.app.run(debug=False)
